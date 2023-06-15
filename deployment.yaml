@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sensor-evaluation
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: sensor-evaluation
+  template:
+    metadata:
+      labels:
+        app: sensor-evaluation
+    spec:
+      containers:
+      - name: sensor-evaluation
+        image: ugokwemc/sensor-evaluation:latest
+        ports:
+        - containerPort: 5000
+
